@@ -3,556 +3,362 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI論文ワークフロー — 戸川先生メソッド</title>
-<meta name="description" content="国語探究研究会 Zoomサークル（2026-05-20）で戸川先生が解説したAI活用による論文執筆ワークフロー。NotebookLM・天秤AI・Google AI Modeを使った9ステップ手順。">
+<title>🎓 AI論文ワークフロー — 戸川先生メソッド</title>
+<meta name="description" content="戸川先生が国語探究研究会で実演解説したAI活用論文ワークフロー。9ステップでAIを使い倒して論文を書く方法。">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-<nav class="toc"><h2>📑 目次</h2><ul><li><a href="#クイック早見表-論文1本を書くためのaiフロー">🎯
-クイック早見表：論文1本を書くためのAIフロー</a></li><li><a href="#ステップ詳細">📋 ステップ詳細</a></li><li>&nbsp;&nbsp;<a href="#step-1--テーマを決め-関連論文を集める">Step 1:
-テーマを決め、関連論文を集める</a></li><li>&nbsp;&nbsp;<a href="#step-2--集めた論文を読む-notebooklm">Step 2:
-集めた論文を読む（NotebookLM）</a></li><li>&nbsp;&nbsp;<a href="#step-3--論文間の共通点を抽出する">Step 3:
-論文間の共通点を抽出する</a></li><li>&nbsp;&nbsp;<a href="#step-4--リサーチギャップを発見する">Step 4:
-リサーチギャップを発見する</a></li><li>&nbsp;&nbsp;<a href="#step-5--論文ドラフトを書く-天秤ai">Step 5:
-論文ドラフトを書く（天秤AI）</a></li><li>&nbsp;&nbsp;<a href="#step-6--出力を相対化・深掘りする-天秤ai-拡張機能">Step 6:
-出力を相対化・深掘りする（天秤AI 拡張機能）</a></li><li>&nbsp;&nbsp;<a href="#step-7--参考文献を集める">Step 7: 参考文献を集める</a></li><li>&nbsp;&nbsp;<a href="#step-8--完成原稿を評価させる">Step 8: 完成原稿を評価させる</a></li><li>&nbsp;&nbsp;<a href="#step-9--英語論文化して世界に出す">Step 9:
-英語論文化して世界に出す</a></li><li><a href="#周辺ツール">🔧 周辺ツール</a></li><li>&nbsp;&nbsp;<a href="#多言語検索aiの使い分け">多言語検索AIの使い分け</a></li><li>&nbsp;&nbsp;<a href="#情報収集の補助-google-トレンド">情報収集の補助：Google
-トレンド</a></li><li><a href="#戸川先生の哲学">🌟 戸川先生の哲学</a></li><li>&nbsp;&nbsp;<a href="#①--のび太-ドラえもん-型のai使用">①
-「のび太→ドラえもん」型のAI使用</a></li><li>&nbsp;&nbsp;<a href="#②-組み合わせる主体に価値がある">②
-組み合わせる主体に価値がある</a></li><li>&nbsp;&nbsp;<a href="#③-一次情報・二次情報の本質">③ 一次情報・二次情報の本質</a></li><li><a href="#必要なアカウント・ツール一覧-始めるための準備">📦
-必要なアカウント・ツール一覧（始めるための準備）</a></li><li><a href="#戸川先生のict-ai授業実践-補足">🎬
-戸川先生のICT×AI授業実践（補足）</a></li><li><a href="#補足--田脇先生からの相談に対する戸川先生の応答構造">補足:
-田脇先生からの相談に対する戸川先生の応答構造</a></li></ul></nav>
-<h1
-id="aiを使った論文の書き方--戸川先生のワークフロー">AIを使った論文の書き方
-— 戸川先生のワークフロー</h1>
-<p><strong>収録</strong>: 2026-05-20 国語探究研究会 Zoomサークル
-アフタートーク <strong>該当時間帯</strong>: 21:00〜21:36頃（Part
-5後半〜Part 7冒頭） <strong>話の中心</strong>: 戸川先生 →
-田脇先生（および参加者）に向けた、AI活用による論文執筆・参考文献収集・英語論文化のワークフロー解説
-<strong>戸川先生</strong>:
-中高勤務、今年から演劇部顧問。ICT/AIを使った国語授業研究を進めている。Zoom画面共有でNotebookLM・Google
-AI Mode・天秤AIを実演しながら解説した</p>
-<p>通し書き起こしは <a href="./フル書き起こし.md">フル書き起こし.md</a>
-を参照。本ファイルは戸川先生のAI論文ワークフローを<strong>実際に再現できる手順書</strong>として再構成したもの。</p>
-<hr />
-<h1 id="クイック早見表-論文1本を書くためのaiフロー">🎯
-クイック早見表：論文1本を書くためのAIフロー</h1>
-<pre><code>┌─────────────────────────────────────────────────────┐
-│ Step 1  テーマを決め、関連論文を集める               │
-│         → Google AI Mode で論文を探す                 │
-│                                                      │
-│ Step 2  論文を読む                                   │
-│         → NotebookLM に6本くらい投入                  │
-│         → 「絵本のように…ページ数増えてもOK」 prompt  │
-│                                                      │
-│ Step 3  論文間の共通点・違いを抽出                   │
-│         → NotebookLM で「すべて選択」→ 共通項を聞く   │
-│                                                      │
-│ Step 4  自分のリサーチギャップを発見                 │
-│         → Google AI Mode で「○○の論文一覧出して」   │
-│         → 海外で2本しかない領域 = チャンス            │
-│                                                      │
-│ Step 5  論文ドラフトを書く                           │
-│         → 天秤AI で6モデル同時に書かせる              │
-│         → モデル特性で使い分け（Claude/GPT/Gemini）   │
-│                                                      │
-│ Step 6  6個の出力を比較・選択                        │
-│         → 天秤ジャッジで相対化                        │
-│         → 壁打ちで深掘り                              │
-│                                                      │
-│ Step 7  参考文献を集める                             │
-│         → Claude では NG（ハルシネーション）          │
-│         → Google AI Mode で無料ジャーナルを探す       │
-│                                                      │
-│ Step 8  完成原稿を評価させる                         │
-│         → 「英語論文化したら評価されますか」と聞く    │
-│         → 投稿ジャーナルの方向性を決める              │
-│                                                      │
-│ Step 9  英語論文化して世界に出す                     │
-└─────────────────────────────────────────────────────┘</code></pre>
-<hr />
-<h1 id="ステップ詳細">📋 ステップ詳細</h1>
-<h2 id="step-1--テーマを決め-関連論文を集める">Step 1:
-テーマを決め、関連論文を集める</h2>
-<h3>使うAI</h3>
-<p><strong>Google AI Mode</strong>（Google検索のAIモード）</p>
-<h3>やること</h3>
-<ol type="1">
-<li>Google AI Mode を開く</li>
-<li>「○○についての論文を一覧で出して」と入力</li>
-<li>「もうちょっと一覧で出してください」と追加指示</li>
-<li><strong>国別・地域別に研究の偏りを確認</strong></li>
-</ol>
-<h3>戸川先生の使い方の例</h3>
-<pre><code>質問例: &quot;G商法（演劇的読み）の論文を一覧で出して&quot;
-↓
-追加質問: &quot;もうちょっと一覧で出してください&quot;
-↓
-発見: アメリカ・ヨーロッパは多い、インドの研究者は2本しか出していない
-→ そこに英語論文化のチャンスがある</code></pre>
-<h3>なぜGoogle AI Mode？</h3>
-<ul>
-<li><strong>論文検索は Google AI Mode
-が一番いっぱい出してくれる</strong></li>
-<li>Perplexity は「私が欲しい情報と違うのが並んでくる」</li>
-<li>GenSpark
-は「一気にスライドまで作ろうとするので、リストだけ欲しい時には向かない」</li>
-</ul>
-<hr />
-<h2 id="step-2--集めた論文を読む-notebooklm">Step 2:
-集めた論文を読む（NotebookLM）</h2>
-<h3>使うAI</h3>
-<p><strong>NotebookLM</strong>（Googleの「複数ソースをまたいで読めるAI」）</p>
-<h3>やること</h3>
-<ol type="1">
-<li>NotebookLM を開く</li>
-<li><strong>6種類くらいの論文PDFをアップロード</strong></li>
-<li>読みたい論文にチェックマークを入れる</li>
-<li>下記の魔法プロンプトを打つ</li>
-</ol>
-<h3>⭐ 戸川先生の必殺プロンプト</h3>
-<pre><code>話の内容を語りかける絵本のように
-優しく可愛くわかりやすくまとめてください。
-ページ数が増えても構いません。</code></pre>
-<h3>このプロンプトの肝</h3>
-<ul>
-<li><strong>「ページ数が増えても構いません」が最重要</strong></li>
-<li>これがないと「優しく可愛くわかりやすく」だけだとAIが「簡単な言葉でざっくりまとめた文章」と理解して<strong>詳細を落としてしまう</strong></li>
-<li>「ページ数が増えても構いません」を入れると比較的詳細を保ったまま親しみやすく書いてくれる</li>
-<li>→ 英語論文がめちゃくちゃわかりやすく親しみやすくなる</li>
-</ul>
-<h3>NotebookLMでできる他の操作</h3>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>プロンプト例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>スライド化</td>
-<td>「スライドを生成して出してください」</td>
-</tr>
-<tr>
-<td>特定情報の所在</td>
-<td>「○○について、何ページ上にありますか」</td>
-</tr>
-<tr>
-<td>前後の文脈</td>
-<td>「その前後にどんなことが書いてますか」</td>
-</tr>
-<tr>
-<td>日本語翻訳</td>
-<td>「日本語で翻訳してください」</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="step-3--論文間の共通点を抽出する">Step 3:
-論文間の共通点を抽出する</h2>
-<h3>使うAI</h3>
-<p><strong>NotebookLM</strong>（同じ）</p>
-<h3>やること</h3>
-<ol type="1">
-<li>NotebookLMで複数論文を**「すべて選択」**</li>
-<li>「これらの論文で共通しているのを教えて」と入力</li>
-<li>→ 横断的に共通項を抽出してくれる</li>
-</ol>
-<h3>用途</h3>
-<ul>
-<li>自分の研究の理論的バックグラウンドを整理</li>
-<li>先行研究の流れを把握</li>
-<li>自分が立てる仮説の位置づけを確認</li>
-</ul>
-<hr />
-<h2 id="step-4--リサーチギャップを発見する">Step 4:
-リサーチギャップを発見する</h2>
-<h3>使うAI</h3>
-<p><strong>Google AI Mode</strong>（Step 1と同じ）</p>
-<h3>やること</h3>
-<ol type="1">
-<li>関連領域で<strong>どの国の研究者が何本論文を出しているか</strong>を聞く</li>
-<li>数が少ない国・領域を探す</li>
-<li>そこを「自分が英語論文化して世界に出す」候補にする</li>
-</ol>
-<h3>戸川先生の発見例</h3>
-<blockquote>
-<p>「今までなんかアメリカとかヨーロッパが多かったんで、他に何かあるかなと思って、<strong>インドの研究者2つ論文出してるみたいで、2つしかないんだったら、私は実は日本で論文出すだけじゃなくて、英語論文化して世界に出すっていうのを今年いくつかやりたい</strong>」</p>
-</blockquote>
-<h3>思想的背景</h3>
-<ul>
-<li>日本人は「日本語ですごいことをやっていても世界に価値を送り出せていない」</li>
-<li>英語の情報を受け取れず、英語に発信もしない＝<strong>エコーチェンバー</strong>に閉じこもっている</li>
-<li>SNS指導の不在が「発信しない国民性」を作っている</li>
-<li>AIがあれば<strong>自分を実験体にして英語論文を実際に書ける</strong></li>
-</ul>
-<hr />
-<h2 id="step-5--論文ドラフトを書く-天秤ai">Step 5:
-論文ドラフトを書く（天秤AI）</h2>
-<h3>使うAI</h3>
-<p><strong>天秤AI</strong>（6つの有料級AIを1つのプロンプトで同時対話できるサービス）</p>
-<h3>仕組み</h3>
-<ul>
-<li>1つのプロンプトで<strong>最大6個のAIに同時に書かせる</strong></li>
-<li>回数制限：チャージ1回で20回くらいやり取り可能</li>
-<li>普通のAI = 消費1、高度なAI = 消費4</li>
-<li>「20回やり取りできれば大体問題解決する」</li>
-</ul>
-<h3>戸川先生のモデル特性まとめ</h3>
-<table>
-<thead>
-<tr>
-<th>AI</th>
-<th>特徴</th>
-<th>使いどころ</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Claude</strong></td>
-<td>真面目に出力を考えてた結果、評価が高い／安定</td>
-<td>論文の真面目な部分・本文</td>
-</tr>
-<tr>
-<td><strong>ChatGPT</strong></td>
-<td>面白いことをどんどんやる</td>
-<td>アイデア出し・展開</td>
-</tr>
-<tr>
-<td><strong>Gemini</strong></td>
-<td>実用ベース</td>
-<td>実用文・サマリー</td>
-</tr>
-</tbody>
-</table>
-<h3>やること</h3>
-<ol type="1">
-<li>天秤AIを開く</li>
-<li>「○○についての論文を書いて」と1つのプロンプト</li>
-<li>5〜6個のAIが<strong>同時並行</strong>で書き始める</li>
-<li>出てきた5〜6個の出力を比較する</li>
-<li>「<strong>どのAIが自分のこの質問に一番合うか</strong>」を自分の中で蓄積していく</li>
-</ol>
-<h3>キモ</h3>
-<blockquote>
-<p>「<strong>先生、本当ありですよ、天秤AIをまだ使うで使い倒すぐらい使ってください</strong>。そしたらどれが自分に一番あった出力か、この質問で一番使えるAIはどれかっていうふうに、自分の中でできていきます」</p>
-</blockquote>
-<hr />
-<h2 id="step-6--出力を相対化・深掘りする-天秤ai-拡張機能">Step 6:
-出力を相対化・深掘りする（天秤AI 拡張機能）</h2>
-<h3>6-A: 天秤ジャッジ機能</h3>
-<ul>
-<li>5〜6個のAI出力を<strong>さらにAIに評価させる</strong></li>
-<li>どれが一番良いかを相対化してまとめてくれる</li>
-<li>→ 5本の長文を全部読まずに済む</li>
-</ul>
-<h3>6-B: 壁打ち機能</h3>
-<ul>
-<li>ボタン1つで5つの内容を自動プロンプト化</li>
-<li>それぞれのAIに<strong>互いの出力を見せて再考させる</strong></li>
-<li>例：ChatGPTの意見を加えて、Claudeに「これも踏まえて再考して」と渡す</li>
-<li>→ AI同士でブラッシュアップ</li>
-</ul>
-<h3>使い分け</h3>
-<table>
-<thead>
-<tr>
-<th>状況</th>
-<th>どれを使う</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>とにかく一番良い出力を選びたい</td>
-<td>天秤ジャッジ</td>
-</tr>
-<tr>
-<td>もっと良い出力に練り上げたい</td>
-<td>壁打ち</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="step-7--参考文献を集める">Step 7: 参考文献を集める</h2>
-<h3>⚠️ 重要：Claudeは使うな</h3>
-<p>戸川先生の失敗体験：</p>
-<blockquote>
-<p>「参考文献を探すの最初Claudeがバーっと出してくれたんですけど、それ実際調べてみたら<strong>嘘いっぱいあった</strong>。だろう分（＝そんな本）存在しねえよとか」</p>
-</blockquote>
-<p>→
-Claudeは<strong>ハルシネーションで存在しない本を出す</strong>ことがある</p>
-<h3>使うAI</h3>
-<p><strong>Google AI Mode 一択</strong></p>
-<h3>やること</h3>
-<ol type="1">
-<li>Google AI Mode で「○○についての参考文献を一覧で出して」</li>
-<li>候補の中から<strong>実在するか確認</strong></li>
-<li>有料書籍を発見したら、無料で読めるジャーナルがないか追加で聞く</li>
-</ol>
-<h3>コスト感</h3>
-<ul>
-<li>「4分（=1部）だったら1万円ぐらいするドル」「数行参照するために一冊買えるか」</li>
-<li>→
-<strong>無料で参照できるジャーナルはないか</strong>とAIに切り替えて指示</li>
-</ul>
-<h3>ツール比較（参考文献用）</h3>
-<table>
-<thead>
-<tr>
-<th>ツール</th>
-<th>適性</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Google AI Mode</td>
-<td>◎ 一番多くの候補を出す</td>
-</tr>
-<tr>
-<td>Perplexity</td>
-<td>△ 多言語OKだが欲しい情報とずれる</td>
-</tr>
-<tr>
-<td>GenSpark</td>
-<td>✗ スライド志向、リスト用途では不向き</td>
-</tr>
-<tr>
-<td>Claude</td>
-<td>✗ ハルシネーションあり</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="step-8--完成原稿を評価させる">Step 8: 完成原稿を評価させる</h2>
-<h3>使うAI</h3>
-<p><strong>Claude / Gemini / 天秤AI</strong>（どれでもOK）</p>
-<h3>⭐ 評価プロンプト</h3>
-<pre><code>この論文を英語論文にした時、評価されますか？</code></pre>
-<h3>返ってくる答えの例</h3>
-<ul>
-<li>「公開価値がある／ない」の判定</li>
-<li>「<strong>この論文の考え方はいいけど、出すジャーナルによって変わる</strong>」</li>
-<li>ジャーナル選択ガイダンス：
-<ul>
-<li>情報関係（AI寄り）に出すなら…</li>
-<li>文学に出すなら…</li>
-<li>心理に出すなら…</li>
-<li>哲学に出すなら…</li>
-<li>→ <strong>自分が語りたいところに出す</strong></li>
-</ul></li>
-</ul>
-<hr />
-<h2 id="step-9--英語論文化して世界に出す">Step 9:
-英語論文化して世界に出す</h2>
-<h3>戸川先生の現状（2026-05時点）</h3>
-<ul>
-<li><strong>2本の論文を英語論文化中</strong></li>
-<li>海外（特にアジア圏）で研究が少ない領域を狙う</li>
-</ul>
-<h3
-id="英語論文を読むと英語論文を書くの両輪">「英語論文を読む」と「英語論文を書く」の両輪</h3>
-<ul>
-<li>読む側：NotebookLM＋「ページ数が増えても構いません」プロンプトで詳細保持</li>
-<li>書く側：天秤AIで6モデル並行 → 天秤ジャッジで相対化 →
-英語論文化評価</li>
-</ul>
-<hr />
-<h1 id="周辺ツール">🔧 周辺ツール</h1>
-<h2 id="多言語検索aiの使い分け">多言語検索AIの使い分け</h2>
-<table>
-<thead>
-<tr>
-<th>ツール</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Google AI Mode</strong></td>
-<td>論文検索の決定打</td>
-</tr>
-<tr>
-<td><strong>Perplexity</strong></td>
-<td>検索AI、多言語OK</td>
-</tr>
-<tr>
-<td><strong>GenSpark</strong></td>
-<td>スライドまで一気に作る</td>
-</tr>
-<tr>
-<td><strong>Felo</strong></td>
-<td>多言語検索AI</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>「<strong>そこを多言語検索できるAIをちゃんと使ってるかどうかっていうのがポイント。日本語の中から持ってくるんじゃなくて、いろんな国の情報を持ってきてくれるAI、それとか、そういうプロンプトで質問するっていうことが分かってると世界が変わる</strong>」</p>
-</blockquote>
-<hr />
-<h2 id="情報収集の補助-google-トレンド">情報収集の補助：Google
-トレンド</h2>
-<p>論文テーマを決めるとき、世間の関心度や英語情報量との差を可視化するのに使う。</p>
-<h3>使い方</h3>
-<ol type="1">
-<li>Google Trends に登録</li>
-<li>毎日1キーワードで通知が来るβ版機能あり</li>
-<li>急上昇／急下降を確認</li>
-<li>例：「国語」検索 → 共通テスト時期にスパイク</li>
-<li>同じ概念でも「数学」と「算数」では検索量が桁違い →
-タイトル付けの参考に</li>
-<li><strong>英語キーワードで検索すると情報量が桁違い</strong> →
-日本人が情報を取れていない可視化</li>
-</ol>
-<hr />
-<h2
-id="情報収集の補助意図的エコーチェンバー">情報収集の補助：意図的エコーチェンバー</h2>
-<blockquote>
-<p>「<strong>ある時期に気づいてエコーチェンバーを意図的に作った</strong>。AIの配信者をフォローしまくったらそういう情報ばっかりくるようになる」</p>
-</blockquote>
-<h3>やり方</h3>
-<ol type="1">
-<li>インスタグラム等でAI関連の発信者を<strong>集中フォロー</strong></li>
-<li>広告目的・収益目的の発信者は<strong>フォロー解除</strong></li>
-<li>情報の質をどんどん上げていく</li>
-<li>AI自身に「これをやるのに適したAIって何？」と聞き、新ツールを試す</li>
-<li>→ 拡張のサイクル</li>
-</ol>
-<h3>Google アラート</h3>
-<ul>
-<li>Googleグループ所属で<strong>最新情報をメール受信</strong></li>
-<li>「Geminiの裏側の仕組みが変わった」など出たばかりの情報が即届く</li>
-<li>「これをこういうふうに生かしたら…」と業務に即接続</li>
-</ul>
-<hr />
-<h1 id="戸川先生の哲学">🌟 戸川先生の哲学</h1>
-<h2 id="①--のび太-ドラえもん-型のai使用">①
-「のび太→ドラえもん」型のAI使用</h2>
-<blockquote>
-<p>「<strong>ドラえもんに頼むノビタみたいなのがAI使うのが一番いい</strong>。こんなこといいなとかドラえもんみたいな感じで言ったときに、あのときノビタは多分本当に助けてくれると思ってないんですよ。なんかぐっちり泣きついたら、なんかポケットに手をすこんで、え、その後かなの？みたいな。<strong>そんな選択肢をたくさん持っておく</strong>と、その時は役立たないけど別のときにAIこんなことできたって言って拡張する」</p>
-</blockquote>
-<h3>行動指針</h3>
-<ul>
-<li>AIに<strong>雑に頼む</strong>（厳密なスペック比較より「やってみる」優先）</li>
-<li>ダメでもいい、選択肢を増やすこと自体に価値がある</li>
-<li>やりたいことが<strong>できることの幅から生まれる</strong></li>
-</ul>
-<h2 id="②-組み合わせる主体に価値がある">②
-組み合わせる主体に価値がある</h2>
-<blockquote>
-<p>「クロードと天秤AIとノートブックLMとGoogle
-AIモードと、私がやってるのはこれらを組み合わせるとこんなことができるっていうのを知ってて、やる人なんですよ、私は今」</p>
-</blockquote>
-<h3>注意点</h3>
-<ul>
-<li>これを Claude Code
-に設定して<strong>全自動でやらせる</strong>と「価値の移動が起こらない」</li>
-<li>検索して出てくることと AI で生成した論文の価値は同じ</li>
-<li>→
-「<strong>それってあなたじゃなくていいよね</strong>」になってしまう</li>
-<li>だから組み合わせ・編集者としての自分の存在が論文に価値を与える</li>
-</ul>
-<h2 id="③-一次情報・二次情報の本質">③ 一次情報・二次情報の本質</h2>
-<ul>
-<li>メディア（新聞・テレビ）は二次情報、しかもバイアスが強い</li>
-<li>学者・宗教審議会は一次情報、ただし立ち位置によって変わる</li>
-<li><strong>「私たちこそが一次情報なんですよ。子供たちと現場で実際に使って一緒に学んでる」</strong></li>
-<li>ボトムから日本の教育を改革する必要</li>
-</ul>
-<hr />
-<h1 id="必要なアカウント・ツール一覧-始めるための準備">📦
-必要なアカウント・ツール一覧（始めるための準備）</h1>
-<table>
-<thead>
-<tr>
-<th>必須</th>
-<th>ツール</th>
-<th>取得方法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>★</td>
-<td>NotebookLM</td>
-<td>notebooklm.google.com（Googleアカウントで無料）</td>
-</tr>
-<tr>
-<td>★</td>
-<td>Google AI Mode</td>
-<td>Google検索のAIモード（無料）</td>
-</tr>
-<tr>
-<td>★</td>
-<td>天秤AI</td>
-<td>検索して登録（無料枠＋有料チャージ）</td>
-</tr>
-<tr>
-<td>◎</td>
-<td>Claude / ChatGPT / Gemini</td>
-<td>個別契約 or 天秤AI経由</td>
-</tr>
-<tr>
-<td>◎</td>
-<td>Google Trends</td>
-<td>trends.google.com（無料）</td>
-</tr>
-<tr>
-<td>○</td>
-<td>Perplexity</td>
-<td>perplexity.ai（無料＋Pro）</td>
-</tr>
-<tr>
-<td>○</td>
-<td>GenSpark</td>
-<td>genspark.ai</td>
-</tr>
-<tr>
-<td>○</td>
-<td>Felo</td>
-<td>felo.ai</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h1 id="戸川先生のict-ai授業実践-補足">🎬
-戸川先生のICT×AI授業実践（補足）</h1>
-<p>論文ワークフロー以外でも、戸川先生はAIを使った国語授業を実践している。</p>
-<h3>「画像→3D化→3Dプリンター」実践</h3>
-<ul>
-<li>小説の1場面 → AIで画像化 → 3D変換AIで立体化 → 3Dプリンターで印刷 →
-生徒に渡す</li>
-<li>「<strong>画像から3DにできるAIが生まれましたって言ったときに、これ現実に出したら面白いじゃん</strong>」が起点</li>
-<li>どの3D化AI（メッシー、トリオ等）が良いかの比較ではなく**「そうしたいからこのAIでやる」**</li>
-</ul>
-<h3>授業スタイル</h3>
-<ul>
-<li>原則ICT、紙は本人が好きなら使ってOK</li>
-<li>生徒全員AI・ICT・友達と会話しながら授業</li>
-<li>「<strong>生徒が私に活用の仕方を見せてくれる</strong>」 =
-弟子が教師を染める関係</li>
-</ul>
-<hr />
-<h1 id="補足--田脇先生からの相談に対する戸川先生の応答構造">補足:
-田脇先生からの相談に対する戸川先生の応答構造</h1>
-<p>このパート全体を通して、戸川先生は田脇先生（北海道在住、佐野先生のジグソー法を学んだ国語教育者）に対して、</p>
-<ol type="1">
-<li><strong>「やりたい」を知るためにはやってみないとわからない</strong>という大前提を伝え</li>
-<li>具体的なツールを<strong>画面共有して実演</strong>し</li>
-<li>すぐ試せるよう「<strong>先生、本当ありですよ、天秤AIをまだ使うで使い倒すぐらい使ってください</strong>」と背中を押し</li>
-<li>その先の展開として<strong>英語論文化／世界発信</strong>という目標を提示している</li>
-</ol>
-<p>この対話自体が、戸川先生が日頃やっている「学びのSNS」「拡張するコミュニティ」の実演になっている。</p>
 
-</div>
-<div class="scroll-hint" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="トップへ">↑</div>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">📚 国語探究研究会 Zoomサークル・2026年5月20日</div>
+    <h1>🤖 AI論文ワークフロー<br><span class="hero-sub">— 戸川先生メソッド —</span></h1>
+    <p class="hero-lead">AIを使い倒して、論文を書く・読む・世界に出すまでを<strong>9ステップ</strong>で実演解説</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">ステップ</div></div>
+      <div class="stat"><div class="stat-num">6</div><div class="stat-label">AI同時稼働</div></div>
+      <div class="stat"><div class="stat-num">2</div><div class="stat-label">英語論文執筆中</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- KEY INSIGHT -->
+<section class="key-insight">
+  <div class="container">
+    <div class="insight-card">
+      <div class="insight-emoji">💡</div>
+      <div class="insight-text">
+        <strong>戸川先生の核心メッセージ</strong>
+        <p>「日本人は <strong style="color:#e53e3e">日本語ですごいことをやってても世界に価値を送り出せていない</strong>。だからAIがあれば、自分を実験体にしてやってみよう」</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOL STACK -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title"><span class="emoji">🧰</span>ツールスタック</h2>
+    <p class="section-lead">9ステップ全体で使う4つの柱AI</p>
+    <div class="tool-grid">
+      <div class="tool-card tc-notebook">
+        <div class="tool-icon">📓</div>
+        <div class="tool-name">NotebookLM</div>
+        <div class="tool-role">論文を読む・横断比較する</div>
+      </div>
+      <div class="tool-card tc-google">
+        <div class="tool-icon">🔍</div>
+        <div class="tool-name">Google AI Mode</div>
+        <div class="tool-role">論文検索・参考文献集め</div>
+      </div>
+      <div class="tool-card tc-tenbin">
+        <div class="tool-icon">⚖️</div>
+        <div class="tool-name">天秤AI</div>
+        <div class="tool-role">6モデル並行で書かせる</div>
+      </div>
+      <div class="tool-card tc-multi">
+        <div class="tool-icon">🌐</div>
+        <div class="tool-name">Claude / GPT / Gemini</div>
+        <div class="tool-role">原稿評価・英語論文化</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 STEPS FLOW -->
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title"><span class="emoji">🚀</span>9ステップ・フルフロー</h2>
+
+    <div class="step-flow">
+
+      <article class="step step-1">
+        <div class="step-badge">Step 1</div>
+        <div class="step-icon">🎯</div>
+        <h3>テーマを決め、論文を集める</h3>
+        <div class="step-tool"><span class="tool-pill tc-google">🔍 Google AI Mode</span></div>
+        <ul>
+          <li>「○○についての論文を一覧で出して」</li>
+          <li>国別・地域別の偏りを確認</li>
+          <li>例：インドの研究者は2本だけ → そこが英語論文化のチャンス</li>
+        </ul>
+        <div class="step-note">⚠️ Perplexity・GenSparkは欲しい情報とずれる</div>
+      </article>
+
+      <div class="arrow">⬇️</div>
+
+      <article class="step step-2">
+        <div class="step-badge">Step 2</div>
+        <div class="step-icon">📖</div>
+        <h3>論文を読む</h3>
+        <div class="step-tool"><span class="tool-pill tc-notebook">📓 NotebookLM</span></div>
+        <ul>
+          <li>6種類くらいの論文PDFをアップロード</li>
+          <li>読みたい論文にチェック</li>
+        </ul>
+        <div class="magic-prompt">
+          <div class="prompt-label">✨ 戸川先生の必殺プロンプト</div>
+          <pre>話の内容を語りかける絵本のように
+優しく可愛くわかりやすくまとめてください。
+ページ数が増えても構いません。</pre>
+          <div class="prompt-hint">💎 「ページ数が増えても構いません」が肝。これがないと簡潔すぎて詳細が落ちる</div>
+        </div>
+      </article>
+
+      <div class="arrow">⬇️</div>
+
+      <article class="step step-3">
+        <div class="step-badge">Step 3</div>
+        <div class="step-icon">🔗</div>
+        <h3>論文間の共通点を抽出</h3>
+        <div class="step-tool"><span class="tool-pill tc-notebook">📓 NotebookLM</span></div>
+        <ul>
+          <li>「すべて選択」して「共通しているのを教えて」</li>
+          <li>「その前後にどんなことが書いてますか」で詳細</li>
+          <li>「日本語で翻訳してください」で英語論文を読む</li>
+        </ul>
+      </article>
+
+      <div class="arrow">⬇️</div>
+
+      <article class="step step-4">
+        <div class="step-badge">Step 4</div>
+        <div class="step-icon">🕳️</div>
+        <h3>リサーチギャップを発見</h3>
+        <div class="step-tool"><span class="tool-pill tc-google">🔍 Google AI Mode</span></div>
+        <ul>
+          <li>どの国の研究者が何本論文を出しているか</li>
+          <li>数が少ない領域 = 自分が英語論文化するチャンス</li>
+          <li><strong style="color:#e53e3e">日本人は世界に価値を出せてない</strong>から踏み込む</li>
+        </ul>
+      </article>
+
+      <div class="arrow">⬇️</div>
+
+      <article class="step step-5">
+        <div class="step-badge">Step 5</div>
+        <div class="step-icon">✍️</div>
+        <h3>論文ドラフトを書く</h3>
+        <div class="step-tool"><span class="tool-pill tc-tenbin">⚖️ 天秤AI</span></div>
+        <ul>
+          <li>1プロンプトで <strong>6個のAIに同時</strong>に書かせる</li>
+          <li>チャージ1回で20回くらいやり取り可能</li>
+          <li>「20回やり取りできれば大体問題解決する」</li>
+        </ul>
+        <div class="model-compare">
+          <div class="model"><span class="model-emoji">🟧</span><strong>Claude</strong><span>真面目・安定</span><em>論文本文向き</em></div>
+          <div class="model"><span class="model-emoji">🟩</span><strong>ChatGPT</strong><span>面白い・展開</span><em>アイデア出し向き</em></div>
+          <div class="model"><span class="model-emoji">🟦</span><strong>Gemini</strong><span>実用ベース</span><em>サマリー向き</em></div>
+        </div>
+      </article>
+
+      <div class="arrow">⬇️</div>
+
+      <article class="step step-6">
+        <div class="step-badge">Step 6</div>
+        <div class="step-icon">⚖️</div>
+        <h3>出力を相対化・深掘り</h3>
+        <div class="step-tool"><span class="tool-pill tc-tenbin">⚖️ 天秤AI 拡張</span></div>
+        <div class="two-col">
+          <div class="col">
+            <strong>🏆 天秤ジャッジ</strong>
+            <p>5〜6個の出力を<br>AIに評価させて<br>一番いいのを選ぶ</p>
+          </div>
+          <div class="col">
+            <strong>🔁 壁打ち</strong>
+            <p>互いの出力を<br>別のAIに渡して<br>再考させる</p>
+          </div>
+        </div>
+      </article>
+
+      <div class="arrow">⬇️</div>
+
+      <article class="step step-7 step-warn">
+        <div class="step-badge">Step 7</div>
+        <div class="step-icon">📚</div>
+        <h3>参考文献を集める</h3>
+        <div class="step-tool"><span class="tool-pill tc-google">🔍 Google AI Mode 一択</span></div>
+        <div class="warn-box">
+          <div class="warn-title">⚠️ Claudeは絶対に使うな</div>
+          <p>戸川先生の失敗談：<br>「Claudeがバーっと出してくれたけど、調べたら<strong>嘘いっぱい</strong>あった。だろう分（=そんな本）存在しねえよ」</p>
+          <p>→ Claudeは存在しない本を堂々と出す（ハルシネーション）</p>
+        </div>
+        <p>1冊1万円超の有料書籍が候補に入ったら、AIに<strong>「無料で参照できるジャーナルはないか」</strong>と聞き直す</p>
+      </article>
+
+      <div class="arrow">⬇️</div>
+
+      <article class="step step-8">
+        <div class="step-badge">Step 8</div>
+        <div class="step-icon">🎯</div>
+        <h3>完成原稿を評価させる</h3>
+        <div class="step-tool"><span class="tool-pill tc-multi">🤖 Claude / Gemini / 天秤AI</span></div>
+        <div class="magic-prompt">
+          <div class="prompt-label">✨ 評価プロンプト</div>
+          <pre>この論文を英語論文にした時、
+評価されますか？</pre>
+        </div>
+        <p>返ってくる答え：</p>
+        <ul>
+          <li>📊 公開価値の判定</li>
+          <li>🎓 ジャーナル選択ガイド（情報／文学／心理／哲学）</li>
+          <li>📝 「自分が語りたいところに出す」</li>
+        </ul>
+      </article>
+
+      <div class="arrow">⬇️</div>
+
+      <article class="step step-9 step-goal">
+        <div class="step-badge">🏆 Step 9 — GOAL!</div>
+        <div class="step-icon">🌍</div>
+        <h3>英語論文化して世界に出す</h3>
+        <p>戸川先生は現在<strong>2本の論文を英語論文化中</strong></p>
+        <div class="goal-banner">日本語ですごいことをやってる人を<br><strong>世界に届ける</strong></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- SIDE TOOLS -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title"><span class="emoji">🛠️</span>周辺ツール</h2>
+
+    <div class="side-grid">
+      <div class="side-card">
+        <div class="side-emoji">📈</div>
+        <h3>Google トレンド</h3>
+        <ul>
+          <li>テーマ決定の参考データ</li>
+          <li>「国語」検索 → 共通テスト時期にスパイク</li>
+          <li>英語キーワードに切り替えると情報量が桁違い</li>
+        </ul>
+      </div>
+      <div class="side-card">
+        <div class="side-emoji">🪞</div>
+        <h3>意図的エコーチェンバー</h3>
+        <ul>
+          <li>AI発信者を集中フォロー</li>
+          <li>広告目的の発信者はフォロー解除</li>
+          <li>情報の質を上げ続ける</li>
+        </ul>
+      </div>
+      <div class="side-card">
+        <div class="side-emoji">📬</div>
+        <h3>Google アラート</h3>
+        <ul>
+          <li>最新AI情報をメール受信</li>
+          <li>「Geminiの裏側が変わった」が即届く</li>
+          <li>業務に即接続</li>
+        </ul>
+      </div>
+      <div class="side-card">
+        <div class="side-emoji">🌐</div>
+        <h3>多言語検索AI</h3>
+        <ul>
+          <li><strong>Perplexity</strong> 多言語OK、欲しい情報とずれることも</li>
+          <li><strong>GenSpark</strong> スライドまで一気に作る</li>
+          <li><strong>Felo</strong> 多言語検索特化</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="section section-philosophy">
+  <div class="container">
+    <h2 class="section-title"><span class="emoji">🌟</span>戸川先生の哲学</h2>
+
+    <div class="phil-card">
+      <div class="phil-emoji">🤖</div>
+      <h3>「のび太→ドラえもん」型のAI使用</h3>
+      <blockquote>
+        ドラえもんに頼むノビタみたいなのがAI使うのが一番いい。<br>
+        ぐっちり泣きついたら、ポケットに手をすこんで、え、その後かなの？みたいな。<br>
+        そんな選択肢をたくさん持っておくと、<strong>別のときにAIこんなことできたって言って拡張する</strong>。
+      </blockquote>
+      <div class="phil-takeaway">💎 厳密なスペック比較より「やってみる」優先</div>
+    </div>
+
+    <div class="phil-card">
+      <div class="phil-emoji">🎨</div>
+      <h3>組み合わせる主体に価値がある</h3>
+      <blockquote>
+        Claude と 天秤AI と NotebookLM と Google AI Mode と、<br>
+        私がやってるのは <strong>これらを組み合わせるとこんなことができる</strong> っていうのを知ってて、やる人なんですよ。
+      </blockquote>
+      <div class="phil-takeaway">⚠️ Claude Codeで自動化すると価値が消える<br>= 「それってあなたじゃなくていいよね」になる</div>
+    </div>
+
+    <div class="phil-card">
+      <div class="phil-emoji">📊</div>
+      <h3>一次情報・二次情報の本質</h3>
+      <blockquote>
+        私たちこそが一次情報なんですよ。<br>
+        子供たちと現場で実際に使って一緒に学んでる。<br>
+        <strong>ボトムから日本の教育が改革されなきゃいけない。</strong>
+      </blockquote>
+      <div class="phil-takeaway">📰 メディアは二次情報、しかもバイアス強い</div>
+    </div>
+  </div>
+</section>
+
+<!-- ICT-AI BONUS -->
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title"><span class="emoji">🎬</span>授業実践への展開</h2>
+    <div class="bonus-card">
+      <div class="bonus-emoji">🖨️</div>
+      <h3>小説→画像→3D→3Dプリンター</h3>
+      <p>「画像から3DにできるAIが生まれたって言ったときに、これ現実に出したら<strong>面白いじゃん</strong>っていう、国語科の学習活動と技術が結びつく」</p>
+      <div class="flow-mini">
+        <span>📖 小説</span><span>→</span><span>🖼️ 画像AI</span><span>→</span><span>🧊 3D化AI</span><span>→</span><span>🖨️ 3Dプリンター</span><span>→</span><span>🎁 生徒へ</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- START GUIDE -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title"><span class="emoji">🏁</span>今日から始める</h2>
+    <p class="section-lead">必要なアカウント一覧（全部無料枠あり）</p>
+    <table class="start-table">
+      <thead>
+        <tr><th>優先</th><th>ツール</th><th>取得</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="prio">★★★</td><td><strong>📓 NotebookLM</strong></td><td>notebooklm.google.com（Googleアカウントで無料）</td></tr>
+        <tr><td class="prio">★★★</td><td><strong>🔍 Google AI Mode</strong></td><td>Google検索のAIモード（無料）</td></tr>
+        <tr><td class="prio">★★★</td><td><strong>⚖️ 天秤AI</strong></td><td>検索して登録（無料枠＋有料チャージ）</td></tr>
+        <tr><td class="prio">★★</td><td><strong>🤖 Claude / ChatGPT / Gemini</strong></td><td>個別契約 or 天秤AI経由</td></tr>
+        <tr><td class="prio">★★</td><td><strong>📈 Google Trends</strong></td><td>trends.google.com（無料）</td></tr>
+        <tr><td class="prio">★</td><td><strong>🌐 Perplexity / GenSpark / Felo</strong></td><td>各サービスに登録</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p>🎙️ 出典：国語探究研究会 Zoomサークル 2026-05-20 アフタートーク</p>
+    <p>📍 解説：戸川先生（中高勤務・今年から演劇部顧問・ICT/AI国語授業研究）</p>
+    <p>📝 文字起こし：Whisper medium / 編集：玉置みほ</p>
+  </div>
+</footer>
+
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="トップへ">⬆️</button>
+
 <script>
 window.addEventListener('scroll', () => {
-  const hint = document.querySelector('.scroll-hint');
-  if (window.scrollY > 600) hint.classList.add('visible');
-  else hint.classList.remove('visible');
+  const btn = document.querySelector('.scroll-top');
+  btn.classList.toggle('visible', window.scrollY > 800);
 });
 </script>
+
 </body>
 </html>
