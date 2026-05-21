@@ -1,0 +1,237 @@
+/* AI論文ワークフロー カスタムスタイル */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
+
+body {
+  font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.8;
+  color: #1a1a1a;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8edf2 100%);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 60px 50px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border-radius: 16px;
+  margin: 24px auto;
+}
+
+@media (max-width: 768px) {
+  .container { padding: 32px 20px; margin: 12px; border-radius: 12px; }
+}
+
+h1 {
+  font-size: 2.2em;
+  color: #1a3a5c;
+  border-bottom: 4px solid #4a90e2;
+  padding-bottom: 12px;
+  margin-top: 60px;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+h1:first-of-type { margin-top: 0; }
+
+h2 {
+  font-size: 1.6em;
+  color: #2c5282;
+  border-left: 6px solid #4a90e2;
+  padding-left: 16px;
+  margin-top: 48px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #eaf2fb 0%, transparent 100%);
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 0 8px 8px 0;
+}
+
+h3 {
+  font-size: 1.25em;
+  color: #2d3748;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 1.05em;
+  color: #4a5568;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+p { margin: 12px 0; }
+
+a {
+  color: #2b6cb0;
+  text-decoration: none;
+  border-bottom: 1px dotted #2b6cb0;
+}
+a:hover { color: #1a4a82; border-bottom-style: solid; }
+
+strong { color: #c53030; font-weight: 700; }
+
+em { color: #2c5282; font-style: normal; font-weight: 500; }
+
+blockquote {
+  border-left: 4px solid #f6ad55;
+  background: #fffaf0;
+  margin: 20px 0;
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  color: #4a5568;
+  font-style: normal;
+}
+blockquote p { margin: 4px 0; }
+
+code {
+  font-family: 'JetBrains Mono', Menlo, Consolas, monospace;
+  background: #f0f4f8;
+  color: #c53030;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.92em;
+}
+
+pre {
+  background: #1a2332;
+  color: #e2e8f0;
+  padding: 20px 24px;
+  border-radius: 8px;
+  overflow-x: auto;
+  line-height: 1.5;
+  font-size: 0.9em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th {
+  background: linear-gradient(135deg, #4a90e2 0%, #2b6cb0 100%);
+  color: white;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 700;
+}
+
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) { background: #f8fafc; }
+
+ul, ol {
+  margin: 12px 0;
+  padding-left: 24px;
+}
+
+li { margin: 6px 0; }
+
+hr {
+  border: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #cbd5e0, transparent);
+  margin: 40px 0;
+}
+
+/* Step見出し強調 */
+h2:has(+ * ) { position: relative; }
+
+/* ASCII図のコードブロックを特別扱い */
+pre {
+  white-space: pre;
+}
+
+/* フローチャート見出し */
+h1:nth-of-type(2),
+h1:nth-of-type(3) {
+  background: linear-gradient(135deg, #fef5e7 0%, transparent 100%);
+  border-bottom: 4px solid #f6ad55;
+  padding: 12px 20px;
+  border-radius: 8px 8px 0 0;
+}
+
+/* メタ情報の最初の段落 */
+body > .container > p:first-of-type {
+  background: #edf2f7;
+  padding: 16px 20px;
+  border-radius: 8px;
+  border-left: 4px solid #4a90e2;
+}
+
+/* スクロールトップヒント */
+.scroll-hint {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #4a90e2;
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 100;
+}
+.scroll-hint.visible { opacity: 1; }
+.scroll-hint:hover { background: #2b6cb0; }
+
+/* 目次 */
+.toc {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 40px;
+}
+.toc h2 {
+  margin-top: 0;
+  font-size: 1.2em;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.toc ul { padding-left: 20px; }
+.toc a { border: none; }
+
+/* 印刷時 */
+@media print {
+  body { background: white; }
+  .container { box-shadow: none; max-width: 100%; }
+  .scroll-hint { display: none; }
+}
